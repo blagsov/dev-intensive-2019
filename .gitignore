@@ -1,4 +1,4 @@
-#zmowl
+
 # Built application files
 build/
 
@@ -38,4 +38,5 @@ captures/
 google-services.json
 
 # Version control
+vcs.xml
 vcs.xml
