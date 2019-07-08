@@ -38,12 +38,10 @@ object Utils {
         return firstName to lastName
     }
 
-    fun transliteration(payload: String, divider: String = " ") = " "
-    //{
+    fun transliteration(payload: String, divider: String = " ") = ""
+            //: String {
 //
-//        val parts: List<String>? = payload.split(divider)
-//
-//        when (payload) {
+//        val nick = when (payload) {
 //            " " -> "_"
 //
 //            "а" -> "a"
@@ -238,13 +236,33 @@ object Utils {
 //
 //            "Я" -> "ya"
 //
-//
-//
 //            else -> "error"
-//        }}
+//        }
+//        return nick}
 
-    fun toInitials(firstName: String?, lastName: String?) =
-        "${firstName?.get(0)}${lastName?.get(0)}"
+    fun toInitials(firstName: String?, lastName: String?): String {
+        if (firstName == null) {
+            return "${lastName?.get(0)?.toUpperCase()}"
+        }
+        if (lastName == null) {
+            return "${firstName[0].toUpperCase()}"
+        }
+
+        if (firstName == "" && lastName == "") {
+            return "null"
+        }
+        if (firstName == " " && lastName == " ") {
+            return "null"
+        }
+        if (firstName == "" && lastName == " ") {
+            return "null"
+        }
+        if (firstName == " " && lastName == "") {
+            return "null"
+        }
+
+         return "${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}"
+    }
 
 }
 
